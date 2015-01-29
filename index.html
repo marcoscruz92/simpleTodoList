@@ -1,0 +1,33 @@
+<html>  
+<head>
+  <title>Simple To-do list</title>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="container">
+    <h1>To do list</h1>
+    <form>
+      <input type="text" name="todoItem" placeholder="New task"> 
+    </form>
+    <button class="add">Add </button>
+    <div id="todos">
+      
+    </div> 
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript">
+  	$(document).ready(function(){
+	  $(".add").click(function(){
+	    var $item = $("input[name=todoItem]").val();
+	    $("#todos").append("<div class='todo'>" + $item +  "</div>" +
+	     "<button>remove</button>");
+	  });
+	  $(document).on("click", "#todos button",function(){
+	    $(this).prev().remove();
+	    $(this).remove();
+	  });
+	});
+  </script>
+</body> 
+</html>
